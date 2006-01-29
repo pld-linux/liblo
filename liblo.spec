@@ -3,7 +3,7 @@ Summary(pl):	Biblioteka Open Sound Control
 Name:		liblo
 Version:	0.23
 Release:	1
-License:	GPL v.2
+License:	GPL v2
 Group:		Libraries
 Source0:	http://www.ecs.soton.ac.uk/~njh/liblo/%{name}-%{version}.tar.gz
 # Source0-md5:	e14c9f4fae7ed8d9622d126f6fb9c1d7
