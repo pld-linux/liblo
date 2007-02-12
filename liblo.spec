@@ -1,5 +1,5 @@
 Summary:	Open Sound Control library
-Summary(pl):	Biblioteka Open Sound Control
+Summary(pl.UTF-8):   Biblioteka Open Sound Control
 Name:		liblo
 Version:	0.23
 Release:	1
@@ -18,32 +18,32 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 liblo is an implementation of the Open Sound Control protocol for
 POSIX systems.
 
-%description -l pl
-liblo jest implementacj± protoko≥u Open Sound Control dla systemÛw
+%description -l pl.UTF-8
+liblo jest implementacjƒÖ protoko≈Çu Open Sound Control dla system√≥w
 POSIX.
 
 %package devel
 Summary:	Header files for liblo
-Summary(pl):	Pliki nag≥Ûwkowe dla liblo
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe dla liblo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for liblo.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja dla liblo.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja dla liblo.
 
 %package static
 Summary:	liblo static library
-Summary(pl):	Biblioteka statyczna liblo
+Summary(pl.UTF-8):   Biblioteka statyczna liblo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description static
 liblo static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna liblo.
 
 %prep
