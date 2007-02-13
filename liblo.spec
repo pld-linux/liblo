@@ -1,5 +1,5 @@
 Summary:	Open Sound Control library
-Summary(pl.UTF-8):   Biblioteka Open Sound Control
+Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
 Version:	0.23
 Release:	1
@@ -24,7 +24,7 @@ POSIX.
 
 %package devel
 Summary:	Header files for liblo
-Summary(pl.UTF-8):   Pliki nagłówkowe dla liblo
+Summary(pl.UTF-8):	Pliki nagłówkowe dla liblo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -36,7 +36,7 @@ Pliki nagłówkowe i dokumentacja dla liblo.
 
 %package static
 Summary:	liblo static library
-Summary(pl.UTF-8):   Biblioteka statyczna liblo
+Summary(pl.UTF-8):	Biblioteka statyczna liblo
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
