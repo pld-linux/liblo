@@ -1,14 +1,14 @@
 Summary:	Open Sound Control library
 Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
-Version:	0.24
+Version:	0.26
 Release:	1
-License:	GPL v2
+License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://www.ecs.soton.ac.uk/~njh/liblo/%{name}-%{version}.tar.gz
-# Source0-md5:	a9b5e7c6fcc835cd468e26cc95aba91a
-URL:		http://plugin.org.uk/liblo/
-BuildRequires:	autoconf
+Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
+# Source0-md5:	5351de14262560e15e7f23865293b16f
+URL:		http://liblo.sourceforge.net/
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libtool
@@ -74,16 +74,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO 
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_bindir}/oscdump
+%attr(755,root,root) %{_bindir}/oscsend
+%attr(755,root,root) %{_libdir}/liblo.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblo.so.7
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/html/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/liblo.so
+%{_libdir}/liblo.la
 %{_includedir}/lo
-%{_pkgconfigdir}/*.pc
+%{_pkgconfigdir}/liblo.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/liblo.a
