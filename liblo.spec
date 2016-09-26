@@ -1,14 +1,18 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+#
 Summary:	Open Sound Control library
 Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
-Version:	0.26
-Release:	2
+Version:	0.28
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
-# Source0-md5:	5351de14262560e15e7f23865293b16f
+# Source0-md5:	e2a4391a08b49bb316c03e2034e06fa2
 URL:		http://liblo.sourceforge.net/
-BuildRequires:	autoconf >= 2.57
+BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libtool
@@ -56,7 +60,8 @@ Biblioteka statyczna liblo.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-static
+	--enable-ipv6 \
+	%{?with_static_libs:--enable-static}
 %{__make}
 
 %install
@@ -64,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/liblo.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,10 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/html/*
 %attr(755,root,root) %{_libdir}/liblo.so
-%{_libdir}/liblo.la
 %{_includedir}/lo
 %{_pkgconfigdir}/liblo.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/liblo.a
+%endif
