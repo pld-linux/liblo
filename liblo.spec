@@ -5,12 +5,12 @@
 Summary:	Open Sound Control library
 Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
-Version:	0.28
+Version:	0.30
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
-# Source0-md5:	e2a4391a08b49bb316c03e2034e06fa2
+# Source0-md5:	fa1a9d45f86fc18fb54019f670ff2262
 URL:		http://liblo.sourceforge.net/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -60,6 +60,7 @@ Biblioteka statyczna liblo.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--enable-ipv6 \
 	%{?with_static_libs:--enable-static}
 %{__make}
@@ -81,9 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO 
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/oscdump
 %attr(755,root,root) %{_bindir}/oscsend
+%attr(755,root,root) %{_bindir}/oscsendfile
 %attr(755,root,root) %{_libdir}/liblo.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liblo.so.7
 
