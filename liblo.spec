@@ -5,12 +5,12 @@
 Summary:	Open Sound Control library
 Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
-Version:	0.30
+Version:	0.31
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
-# Source0-md5:	fa1a9d45f86fc18fb54019f670ff2262
+# Source0-md5:	14378c1e74c58e777fbb4fcf33ac5315
 URL:		http://liblo.sourceforge.net/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
@@ -50,12 +50,26 @@ liblo static library.
 %description static -l pl.UTF-8
 Biblioteka statyczna liblo.
 
+%package apidocs
+Summary:	API documentation for liblo library
+Summary(pl.UTF-8):	Dokumentacja API biblioteki liblo
+Group:		Documentation
+%if "%{_rpmversion}" >= "4.6"
+BuildArch:	noarch
+%endif
+
+%description apidocs
+API documentation for liblo library.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki liblo.
+
 %prep
 %setup -q
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
@@ -91,7 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc doc/html/*
 %attr(755,root,root) %{_libdir}/liblo.so
 %{_includedir}/lo
 %{_pkgconfigdir}/liblo.pc
@@ -101,3 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/liblo.a
 %endif
+
+%files apidocs
+%defattr(644,root,root,755)
+%doc doc/html/*
