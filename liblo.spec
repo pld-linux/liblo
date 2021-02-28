@@ -54,9 +54,7 @@ Biblioteka statyczna liblo.
 Summary:	API documentation for liblo library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki liblo
 Group:		Documentation
-%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 API documentation for liblo library.
