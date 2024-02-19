@@ -1,0 +1,16 @@
+tmp buffer size is allocated so that it holds whole string (and nothing more)
+so we can simplify code and avoid gcc stringop-overflow warning
+--- liblo-0.32/src/server.c.orig	2024-02-16 22:51:21.000000000 +0100
++++ liblo-0.32/src/server.c	2024-02-19 18:39:35.889219149 +0100
+@@ -2063,9 +2063,8 @@ static void dispatch_method(lo_server s,
+                     char *sec;
+ 
+                     int tmplen = (int) strlen(it->path + len) + 1;
+-                    tmp = (char*) malloc(strlen(it->path + len) + 1);
+-                    strncpy(tmp, it->path + len, tmplen);
+-                    tmp[tmplen-1]=0;
++                    tmp = (char*) malloc(tmplen);
++                    strcpy(tmp, it->path + len);
+                     sec = strchr(tmp, '/');
+                     if (sec)
+                         *sec = '\0';

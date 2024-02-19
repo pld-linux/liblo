@@ -5,17 +5,19 @@
 Summary:	Open Sound Control library
 Summary(pl.UTF-8):	Biblioteka Open Sound Control
 Name:		liblo
-Version:	0.31
+Version:	0.32
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
-# Source0-md5:	14378c1e74c58e777fbb4fcf33ac5315
-URL:		http://liblo.sourceforge.net/
+Source0:	https://downloads.sourceforge.net/liblo/%{name}-%{version}.tar.gz
+# Source0-md5:	a93a7a9da084e6a0937bde6fc324a52a
+Patch0:		%{name}-strncpy.patch
+URL:		https://liblo.sourceforge.net/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake
 BuildRequires:	doxygen
 BuildRequires:	libtool
+BuildRequires:	rpm-build >= 4.6
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,6 +66,7 @@ Dokumentacja API biblioteki liblo.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
